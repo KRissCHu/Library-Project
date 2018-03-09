@@ -1,0 +1,28 @@
+﻿@model LibraryProject.ViewModels.Home.LoginVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        forma { margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="forma">
+        <form action="/Home/Login" method="post">
+            @Html.TextBoxFor(model => model.Username) @Html.ValidationMessageFor(model => model.Username) <br />
+            @Html.PasswordFor(model => model.Password) @Html.ValidationMessageFor(model => model.Password)<br />
+            @Html.ValidationMessage("failedLogin")<br />
+            <input type="submit" value="Login" /><br />
+        </form>
+    </div>
+</body>
+</html>

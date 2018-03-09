@@ -1,0 +1,99 @@
+﻿@model ProjectEntities.Book
+
+@{
+    ViewBag.Title = "Edit";
+}
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">System Library</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Users", "Users")</li>
+            <li>@Html.ActionLink("Books", "Books")</li>
+            <li>@Html.ActionLink("Readers", "Readers")</li>
+            <li>@Html.ActionLink("BookStatus", "BookStatus")</li>
+        </ul>
+    </div>
+</nav>
+<p><font size="5" color="red">@ViewBag.error</font></p>
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Book</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ISBN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ISBN)
+            @Html.ValidationMessageFor(model => model.ISBN)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Author)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Author)
+            @Html.ValidationMessageFor(model => model.Author)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Publisher)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Publisher)
+            @Html.ValidationMessageFor(model => model.Publisher)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PubDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PubDate)
+            @Html.ValidationMessageFor(model => model.PubDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Available)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Available)
+            @Html.ValidationMessageFor(model => model.Available)
+        </div>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

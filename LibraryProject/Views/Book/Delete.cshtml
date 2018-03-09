@@ -1,0 +1,81 @@
+﻿@model ProjectEntities.Book
+
+@{
+    ViewBag.Title = "Delete";
+}
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">System Library</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Users", "Users")</li>
+            <li>@Html.ActionLink("Books", "Books")</li>
+            <li>@Html.ActionLink("Readers", "Readers")</li>
+            <li>@Html.ActionLink("BookStatus", "BookStatus")</li>
+        </ul>
+    </div>
+</nav>
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Book</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ISBN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ISBN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Author)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Author)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Publisher)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Publisher)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PubDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PubDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Available)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Available)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
